@@ -2,9 +2,10 @@
 
 from abc import ABC, abstractmethod
 
+
 class Borrowable(ABC):
     @abstractmethod
-    def borrow_book(self, library, title):
+    def borrow_book(self, library, title, is_account_active):
         pass
 
     @abstractmethod

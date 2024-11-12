@@ -2,12 +2,18 @@
 
 from .borrowable import Borrowable
 
+
 class Member(Borrowable):
-    def __init__(self, name):
+    def __init__(self, name, is_account_active):
         self.name = name
+        self.is_account_active = is_account_active
         self.borrowed_books = []
 
-    def borrow_book(self, library, title):
+    def borrow_book(self, library, title, is_account_active):
+        if not is_account_active:
+            print("Account is not active. Cannot borrow books.")
+            return
+
         book = library.find_book(title)
         if book and not book.is_borrowed:
             book.borrow_book()
