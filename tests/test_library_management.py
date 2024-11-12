@@ -1,9 +1,15 @@
 # tests/test_library_management.py
 
+import sys
+import os
 import unittest
 from library_management.book import Book
 from library_management.library import Library
 from library_management.member import Member
+
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 
 class TestLibraryManagement(unittest.TestCase):
     def setUp(self):
@@ -35,6 +41,7 @@ class TestLibraryManagement(unittest.TestCase):
 
     def test_list_authors(self):
         self.library.list_authors()
+
 
 if __name__ == "__main__":
     unittest.main()
